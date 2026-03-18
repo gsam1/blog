@@ -1,0 +1,380 @@
+---
+---
+
+// ============================================
+// Typography & Colors
+// ============================================
+
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
+$base-font-size:   17px;
+$base-line-height: 1.75;
+$spacing-unit:     32px;
+
+$text-color:       #2d3748;
+$background-color: #f7f8fc;
+$brand-color:      #5a67d8;
+
+$grey-color:       #718096;
+$grey-color-light: #e2e8f0;
+$grey-color-dark:  #4a5568;
+
+$on-palm:          640px;
+$on-laptop:        900px;
+
+@import "minima";
+
+// ============================================
+// Global Overrides
+// ============================================
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+a {
+  color: $brand-color;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: darken($brand-color, 12%);
+    text-decoration: underline;
+  }
+}
+
+// ============================================
+// Header / Nav
+// ============================================
+
+.site-header {
+  background: #1a202c;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  min-height: 60px;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.site-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff !important;
+  text-decoration: none !important;
+
+  &:hover {
+    color: #a3bffa !important;
+    text-decoration: none !important;
+  }
+}
+
+.site-nav {
+  .page-link {
+    color: #cbd5e0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .menu-icon > svg {
+    fill: #cbd5e0;
+  }
+
+  @include media-query($on-palm) {
+    background-color: #2d3748;
+    border: 1px solid #4a5568;
+    border-radius: 6px;
+
+    .page-link {
+      color: #e2e8f0;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #4a5568;
+      }
+    }
+
+    label[for="nav-trigger"] {
+      border-radius: 4px;
+      padding: 4px;
+    }
+  }
+}
+
+// ============================================
+// Page / Wrapper
+// ============================================
+
+.page-content {
+  padding: ($spacing-unit * 1.5) 0;
+
+  .wrapper {
+    max-width: 740px;
+  }
+}
+
+.wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+
+  @include media-query($on-palm) {
+    padding: 0 16px;
+  }
+}
+
+// ============================================
+// Home — Post List
+// ============================================
+
+.home {
+  h1, h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $grey-color;
+    border-bottom: 2px solid $grey-color-light;
+    padding-bottom: 8px;
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.post-list {
+  list-style: none;
+  margin-left: 0;
+
+  > li {
+    margin-bottom: $spacing-unit;
+    padding: 20px 24px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid $grey-color-light;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+    }
+  }
+
+  .post-meta {
+    display: block;
+    font-size: 0.8rem;
+    color: $grey-color;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .post-link {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a202c;
+    line-height: 1.3;
+    display: block;
+
+    &:hover {
+      color: $brand-color;
+      text-decoration: none;
+    }
+  }
+
+  .post-excerpt {
+    color: $grey-color;
+    font-size: 0.95rem;
+    margin-top: 8px;
+  }
+}
+
+.rss-subscribe {
+  color: $grey-color;
+  font-size: 0.875rem;
+}
+
+// ============================================
+// Post / Page
+// ============================================
+
+.post-header {
+  margin-bottom: $spacing-unit * 1.5;
+  padding-bottom: $spacing-unit;
+  border-bottom: 1px solid $grey-color-light;
+
+  .post-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: #1a202c;
+
+    @include media-query($on-palm) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .post-meta {
+    font-size: 0.85rem;
+    color: $grey-color;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 8px;
+  }
+}
+
+.post-content {
+  h1, h2, h3, h4 {
+    color: #1a202c;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: $spacing-unit * 1.5;
+    margin-bottom: 12px;
+  }
+
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+
+  p {
+    margin-bottom: 1.25em;
+  }
+
+  // Inline code
+  code {
+    background: #edf2f7;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.875em;
+    color: #744210;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  // Code blocks
+  pre {
+    background: #1a202c;
+    border: none;
+    border-radius: 8px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin: $spacing-unit 0;
+
+    code {
+      background: transparent;
+      padding: 0;
+      color: #e2e8f0;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+  }
+
+  blockquote {
+    border-left: 4px solid $brand-color;
+    padding: 12px 20px;
+    background: #ebf4ff;
+    border-radius: 0 6px 6px 0;
+    color: #2b6cb0;
+    font-style: normal;
+
+    p:last-child { margin-bottom: 0; }
+  }
+
+  img {
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    max-width: 100%;
+    height: auto;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid $grey-color-light;
+    margin: $spacing-unit * 1.5 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: $spacing-unit 0;
+    font-size: 0.9rem;
+
+    th, td {
+      border: 1px solid $grey-color-light;
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background: #edf2f7;
+      font-weight: 700;
+      color: $grey-color-dark;
+    }
+
+    tr:nth-child(even) td {
+      background: #f7fafc;
+    }
+  }
+}
+
+// ============================================
+// Footer
+// ============================================
+
+.site-footer {
+  background: #1a202c;
+  border-top: none;
+  color: #a0aec0;
+  padding: 24px 0;
+
+  .footer-heading {
+    color: #e2e8f0;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .footer-col-wrapper {
+    color: #a0aec0;
+    font-size: 0.875rem;
+  }
+
+  a {
+    color: #a3bffa;
+    &:hover { color: #fff; }
+  }
+
+  p {
+    color: #718096;
+    font-size: 0.875rem;
+  }
+
+  ul.contact-list,
+  ul.social-media-list {
+    list-style: none;
+    margin-left: 0;
+
+    li {
+      margin-bottom: 4px;
+    }
+  }
+}
