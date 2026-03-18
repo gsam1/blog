@@ -1,0 +1,13 @@
+name: My Blog
+dp: ""
+description: "A personal blog"
+email: ""
+contact:
+  - title: github
+    url: ""
+  - title: twitter
+    url: ""
+  - title: linkedin
+    url: ""
+  - title: email
+    url: ""

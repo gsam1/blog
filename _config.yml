@@ -3,8 +3,6 @@ description: A personal blog
 baseurl: ""
 url: ""
 
-theme: minima
-
 permalink: /:year/:month/:day/:title/
 
 markdown: kramdown
@@ -14,8 +12,28 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+collections_dir: all_collections
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
+      permalink: /posts/:title/
+
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
   - vendor
+  - sitemap.xml
+  - feed.xml
+  - LICENSE
