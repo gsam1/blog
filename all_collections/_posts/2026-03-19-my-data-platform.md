@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The my home data platform"
+title: "My home data platform"
 date: 2026-03-19
 categories: homelab
 ---
